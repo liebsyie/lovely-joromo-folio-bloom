@@ -78,7 +78,7 @@ const About = () => {
             <div className="relative">
               <div className="w-80 h-80 mx-auto glass-card rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
+                  src="/lovable-uploads/3a073665-2bc0-4a94-8789-f19a18f55f57.png" 
                   alt="Lovely Joromo" 
                   className="w-full h-full object-cover"
                 />
