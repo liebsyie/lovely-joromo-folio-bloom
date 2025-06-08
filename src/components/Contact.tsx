@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Mail, Send, Download, Facebook, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -30,7 +29,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Error",
@@ -53,9 +52,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Initialize EmailJS
-      window.emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this with actual key
-      
+      window.emailjs.init("cFqoDcINn_GqUaGIr");
+
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
@@ -64,8 +62,8 @@ const Contact = () => {
       };
 
       await window.emailjs.send(
-        'service_olx3ks3', // You'll need to replace this
-        'template_gu9r3dg', // You'll need to replace this
+        'service_olx3ks3',
+        'template_gu9r3dg',
         templateParams
       );
 
