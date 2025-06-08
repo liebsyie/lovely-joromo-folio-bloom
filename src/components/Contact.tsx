@@ -64,8 +64,8 @@ const Contact = () => {
       };
 
       await window.emailjs.send(
-        'YOUR_SERVICE_ID', // You'll need to replace this
-        'YOUR_TEMPLATE_ID', // You'll need to replace this
+        'service_olx3ks3', // You'll need to replace this
+        'template_gu9r3dg', // You'll need to replace this
         templateParams
       );
 
