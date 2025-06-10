@@ -1,8 +1,9 @@
 
-import { ExternalLink, Github, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import GlowingCard from '@/components/ui/glowing-card';
+import { Sparkles } from 'lucide-react';
 import ScrollReveal from '@/components/ui/scroll-reveal';
+import ProjectCard from '@/components/ui/project-card';
+import EnhancedBackground from '@/components/ui/enhanced-background';
+import FloatingElements from '@/components/ui/floating-elements';
 
 const Projects = () => {
   const projects = [
@@ -52,19 +53,18 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-gradient-to-r from-teal-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
-      </div>
+      {/* Enhanced Background */}
+      <EnhancedBackground variant="section" />
+      <FloatingElements />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <ScrollReveal direction="fade" className="text-center mb-16">
           <div className="flex justify-center items-center gap-2 mb-4">
-            <Sparkles className="text-teal-400" size={24} />
+            <Sparkles className="text-teal-400 animate-pulse" size={24} />
             <h2 className="text-3xl sm:text-4xl font-bold gradient-text">
               Featured Projects
             </h2>
-            <Sparkles className="text-blue-400" size={24} />
+            <Sparkles className="text-blue-400 animate-pulse" size={24} style={{ animationDelay: '1s' }} />
           </div>
           <p className="text-slate-400 text-lg">
             A showcase of my latest work and learning journey
@@ -73,58 +73,11 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <ScrollReveal
+            <ProjectCard
               key={project.title}
-              direction="up"
-              delay={index * 100}
-            >
-              <GlowingCard
-                className="p-6 hover:shadow-xl hover:shadow-teal-500/10 transition-all duration-300 hover:scale-105 group h-full"
-              >
-                <div className="mb-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.gradient}`}></div>
-                    <h3 className="text-xl font-semibold text-slate-200 group-hover:text-teal-400 transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-3 py-1 text-xs bg-gradient-to-r from-slate-700/50 to-slate-600/50 text-slate-300 rounded-full border border-slate-600/30 backdrop-blur-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex gap-3 mt-auto">
-                  <Button
-                    asChild
-                    size="sm"
-                    className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-slate-900 flex-1 transition-all duration-300 hover:scale-105"
-                  >
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <ExternalLink size={16} />
-                      View Project
-                    </a>
-                  </Button>
-                </div>
-              </GlowingCard>
-            </ScrollReveal>
+              {...project}
+              index={index}
+            />
           ))}
         </div>
       </div>

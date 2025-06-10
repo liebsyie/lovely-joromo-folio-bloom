@@ -86,6 +86,21 @@
   .pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite alternate;
   }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(20, 184, 166, 0.15);
+  }
+
+  .stagger-animation {
+    animation: stagger-fade-in 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }
 
 @keyframes gradient-shift {
@@ -99,10 +114,13 @@
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
-  50% {
-    transform: translateY(-10px);
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
   }
 }
 
@@ -112,6 +130,13 @@
   }
   100% {
     box-shadow: 0 0 30px rgba(20, 184, 166, 0.6);
+  }
+}
+
+@keyframes stagger-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
