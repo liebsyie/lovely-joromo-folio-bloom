@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import ThemeSwitcher from '@/components/ui/theme-switcher';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +55,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <button
                 key={item.name}
@@ -68,10 +69,12 @@ const Navigation = () => {
                 {item.name}
               </button>
             ))}
+            <ThemeSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeSwitcher />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-slate-300 hover:text-teal-400 transition-colors"

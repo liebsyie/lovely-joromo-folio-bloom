@@ -1,15 +1,16 @@
 
 import { Code, Palette, Zap, BookOpen } from 'lucide-react';
 import ScrollReveal from '@/components/ui/scroll-reveal';
+import AnimatedSkillBar from '@/components/ui/animated-skill-bar';
 
 const Skills = () => {
   const techSkills = [
-    { name: 'JavaScript', level: 85 },
-    { name: 'React', level: 80 },
-    { name: 'HTML/CSS', level: 90 },
-    { name: 'Tailwind CSS', level: 85 },
-    { name: 'TypeScript', level: 70 },
-    { name: 'Git/GitHub', level: 75 }
+    { name: 'JavaScript', level: 85, color: 'bg-gradient-to-r from-yellow-500 to-orange-500' },
+    { name: 'React', level: 80, color: 'bg-gradient-to-r from-blue-500 to-cyan-500' },
+    { name: 'HTML/CSS', level: 90, color: 'bg-gradient-to-r from-orange-500 to-red-500' },
+    { name: 'Tailwind CSS', level: 85, color: 'bg-gradient-to-r from-teal-500 to-blue-500' },
+    { name: 'TypeScript', level: 70, color: 'bg-gradient-to-r from-blue-600 to-blue-800' },
+    { name: 'Git/GitHub', level: 75, color: 'bg-gradient-to-r from-gray-700 to-gray-900' }
   ];
 
   const designSkills = [
@@ -36,9 +37,9 @@ const Skills = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Technical Skills */}
           <ScrollReveal direction="left">
-            <div className="glass-card rounded-xl p-8">
+            <div className="glass-card rounded-xl p-8 hover-lift">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-teal-500/20 rounded-lg">
+                <div className="p-3 bg-teal-500/20 rounded-lg pulse-glow">
                   <Code className="text-teal-400" size={24} />
                 </div>
                 <h3 className="text-2xl font-semibold text-slate-200">
@@ -48,25 +49,18 @@ const Skills = () => {
 
               <div className="space-y-6">
                 {techSkills.map((skill, index) => (
-                  <ScrollReveal key={skill.name} direction="left" delay={index * 100}>
-                    <div>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-slate-300 font-medium">{skill.name}</span>
-                        <span className="text-teal-400 text-sm">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div 
-                          className="bg-gradient-to-r from-teal-500 to-blue-500 h-2 rounded-full transition-all duration-1000 ease-out hover:shadow-lg hover:shadow-teal-500/30"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  </ScrollReveal>
+                  <AnimatedSkillBar
+                    key={skill.name}
+                    name={skill.name}
+                    level={skill.level}
+                    color={skill.color}
+                    delay={index * 200}
+                  />
                 ))}
               </div>
 
               <ScrollReveal direction="left" delay={600}>
-                <div className="mt-6 p-4 bg-slate-800/50 rounded-lg">
+                <div className="mt-6 p-4 bg-slate-800/50 rounded-lg border border-slate-700/30 hover:border-teal-500/30 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
                     <BookOpen className="text-blue-400" size={20} />
                     <span className="text-slate-300 font-medium">Always Learning</span>
@@ -82,9 +76,9 @@ const Skills = () => {
 
           {/* Design Skills */}
           <ScrollReveal direction="right" delay={300}>
-            <div className="glass-card rounded-xl p-8">
+            <div className="glass-card rounded-xl p-8 hover-lift">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-blue-500/20 rounded-lg">
+                <div className="p-3 bg-blue-500/20 rounded-lg pulse-glow">
                   <Palette className="text-blue-400" size={24} />
                 </div>
                 <h3 className="text-2xl font-semibold text-slate-200">
@@ -95,7 +89,7 @@ const Skills = () => {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {designSkills.map((skill, index) => (
                   <ScrollReveal key={skill} direction="right" delay={index * 50}>
-                    <div className="p-3 bg-slate-800/50 rounded-lg text-center hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
+                    <div className="p-3 bg-slate-800/50 rounded-lg text-center hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 border border-slate-700/30 hover:border-blue-500/30">
                       <span className="text-slate-300 text-sm font-medium">{skill}</span>
                     </div>
                   </ScrollReveal>
@@ -103,7 +97,7 @@ const Skills = () => {
               </div>
 
               <ScrollReveal direction="right" delay={600}>
-                <div className="p-4 bg-slate-800/50 rounded-lg">
+                <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/30 hover:border-blue-500/30 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
                     <Zap className="text-yellow-400" size={20} />
                     <span className="text-slate-300 font-medium">Design Philosophy</span>
