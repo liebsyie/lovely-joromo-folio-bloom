@@ -1,6 +1,8 @@
+
 import { ExternalLink, Github, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GlowingCard from '@/components/ui/glowing-card';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const Projects = () => {
   const projects = [
@@ -56,7 +58,7 @@ const Projects = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <ScrollReveal direction="fade" className="text-center mb-16">
           <div className="flex justify-center items-center gap-2 mb-4">
             <Sparkles className="text-teal-400" size={24} />
             <h2 className="text-3xl sm:text-4xl font-bold gradient-text">
@@ -67,58 +69,62 @@ const Projects = () => {
           <p className="text-slate-400 text-lg">
             A showcase of my latest work and learning journey
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <GlowingCard
+            <ScrollReveal
               key={project.title}
-              className="p-6 hover:shadow-xl hover:shadow-teal-500/10 transition-all duration-300 hover:scale-105 group animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              direction="up"
+              delay={index * 100}
             >
-              <div className="mb-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.gradient}`}></div>
-                  <h3 className="text-xl font-semibold text-slate-200 group-hover:text-teal-400 transition-colors">
-                    {project.title}
-                  </h3>
+              <GlowingCard
+                className="p-6 hover:shadow-xl hover:shadow-teal-500/10 transition-all duration-300 hover:scale-105 group h-full"
+              >
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.gradient}`}></div>
+                    <h3 className="text-xl font-semibold text-slate-200 group-hover:text-teal-400 transition-colors">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
 
-              <div className="mb-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span 
-                      key={tech}
-                      className="px-3 py-1 text-xs bg-gradient-to-r from-slate-700/50 to-slate-600/50 text-slate-300 rounded-full border border-slate-600/30 backdrop-blur-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span 
+                        key={tech}
+                        className="px-3 py-1 text-xs bg-gradient-to-r from-slate-700/50 to-slate-600/50 text-slate-300 rounded-full border border-slate-600/30 backdrop-blur-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex gap-3">
-                <Button
-                  asChild
-                  size="sm"
-                  className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-slate-900 flex-1 transition-all duration-300 hover:scale-105"
-                >
-                  <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
+                <div className="flex gap-3 mt-auto">
+                  <Button
+                    asChild
+                    size="sm"
+                    className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-slate-900 flex-1 transition-all duration-300 hover:scale-105"
                   >
-                    <ExternalLink size={16} />
-                    View Project
-                  </a>
-                </Button>
-              </div>
-            </GlowingCard>
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <ExternalLink size={16} />
+                      View Project
+                    </a>
+                  </Button>
+                </div>
+              </GlowingCard>
+            </ScrollReveal>
           ))}
         </div>
       </div>

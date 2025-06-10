@@ -2,8 +2,13 @@
 import { ArrowRight, Code, Coffee, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MagneticButton from '@/components/ui/magnetic-button';
+import TypingAnimation from '@/components/ui/typing-animation';
+import { useState } from 'react';
 
 const Hero = () => {
+  const [showSubtitle, setShowSubtitle] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
+
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
     if (element) {
@@ -49,34 +54,46 @@ const Hero = () => {
             Hi, I'm{' '}
             <span className="relative">
               <span className="gradient-text">
-                Lovely Joromo
+                <TypingAnimation 
+                  text="Lovely Joromo" 
+                  speed={150}
+                  onComplete={() => setShowSubtitle(true)}
+                />
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-teal-400/20 to-blue-500/20 rounded-lg blur-lg -z-10"></div>
             </span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-slate-300 mb-8 animate-slide-up delay-300">
-            Curious and passionate coder eager to learn and build.
-          </p>
-          
-          <div className="animate-slide-up delay-500">
-            <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-              I'm an IT student who finds joy in crafting digital experiences through code. 
-              Every project is an opportunity to learn something new and push my boundaries 
-              in the ever-evolving world of technology.
+          {showSubtitle && (
+            <p className="text-xl sm:text-2xl text-slate-300 mb-8 animate-slide-up">
+              <TypingAnimation 
+                text="Curious and passionate coder eager to learn and build."
+                speed={50}
+                onComplete={() => setShowDescription(true)}
+              />
             </p>
-            
-            <MagneticButton 
-              onClick={scrollToProjects}
-              size="lg"
-              className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-slate-900 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-teal-500/25 border-0"
-            >
-              <span className="flex items-center gap-2">
-                View My Projects
-                <ArrowRight size={20} />
-              </span>
-            </MagneticButton>
-          </div>
+          )}
+          
+          {showDescription && (
+            <div className="animate-slide-up delay-500">
+              <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                I'm an IT student who finds joy in crafting digital experiences through code. 
+                Every project is an opportunity to learn something new and push my boundaries 
+                in the ever-evolving world of technology.
+              </p>
+              
+              <MagneticButton 
+                onClick={scrollToProjects}
+                size="lg"
+                className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-slate-900 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-teal-500/25 border-0"
+              >
+                <span className="flex items-center gap-2">
+                  View My Projects
+                  <ArrowRight size={20} />
+                </span>
+              </MagneticButton>
+            </div>
+          )}
         </div>
       </div>
     </section>
