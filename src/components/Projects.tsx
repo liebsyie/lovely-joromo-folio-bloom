@@ -1,10 +1,16 @@
-
 import { ExternalLink, Github, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GlowingCard from '@/components/ui/glowing-card';
 
 const Projects = () => {
   const projects = [
+    {
+      title: "Lovely Joromo Music",
+      description: "A personal music streaming platform where I showcase my original compositions and musical creations. Experience my journey as a musician through this interactive music hub.",
+      url: "https://lovelyjoromomusic.vercel.app/",
+      tech: ["React", "Music Streaming", "Audio Player"],
+      gradient: "from-pink-500 to-rose-500"
+    },
     {
       title: "CTU GWA Calculator",
       description: "A comprehensive GWA (General Weighted Average) calculator specifically designed for CTU students to track their academic performance.",
