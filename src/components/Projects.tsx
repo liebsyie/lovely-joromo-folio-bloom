@@ -22,6 +22,13 @@ const Projects = () => {
       gradient: "from-emerald-500 to-teal-500"
     },
     {
+      title: "IntelliWrite Assistant",
+      description: "An intelligent writing assistant that helps users improve their writing with AI-powered suggestions, grammar checking, and content enhancement features.",
+      url: "https://labli-intelliwriteassistant.vercel.app/",
+      tech: ["React", "AI Integration", "TypeScript"],
+      gradient: "from-violet-500 to-purple-500"
+    },
+    {
       title: "MBTI Personality Test",
       description: "An interactive personality test application that helps users discover their MBTI personality type through engaging questions.",
       url: "https://labli-mbti-personality-test.vercel.app/",
