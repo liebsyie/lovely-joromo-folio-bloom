@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import ThemeSwitcher from '@/components/ui/theme-switcher';
 import MobileNavOverlay from '@/components/ui/mobile-nav-overlay';
 import ScrollProgress from '@/components/ui/scroll-progress';
 import SkipLink from '@/components/ui/skip-link';
@@ -101,12 +100,10 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <ThemeSwitcher />
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-3">
-              <ThemeSwitcher />
+            <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-slate-300 hover:text-teal-400 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded p-1"
