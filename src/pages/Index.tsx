@@ -26,11 +26,13 @@ const Index = () => {
           <InteractiveParticles />
           <div className="relative z-10">
             <Navigation />
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <Contact />
+            <main id="main-content" className="focus:outline-none" tabIndex={-1}>
+              <Hero />
+              <About />
+              <Projects />
+              <Skills />
+              <Contact />
+            </main>
             <Footer />
           </div>
         </>
