@@ -42,8 +42,7 @@ const MobileNavOverlay = ({
       
       {/* Navigation Panel */}
       <div className="relative h-full w-full max-w-sm bg-slate-800/95 backdrop-blur-md border-r border-slate-700/50">
-        <div className="flex items-center justify-between p-6 border-b border-slate-700/50">
-          <h2 className="text-xl font-bold gradient-text">Navigation</h2>
+        <div className="flex items-center justify-end p-6 border-b border-slate-700/50">
           <Button
             variant="ghost"
             size="sm"
