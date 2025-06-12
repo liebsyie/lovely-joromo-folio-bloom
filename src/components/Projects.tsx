@@ -1,9 +1,7 @@
 
-import { useState } from 'react';
 import { Sparkles } from 'lucide-react';
 import ScrollReveal from '@/components/ui/scroll-reveal';
 import ProjectCard from '@/components/ui/project-card';
-import ProjectFilter from '@/components/ui/project-filter';
 import EnhancedBackground from '@/components/ui/enhanced-background';
 import FloatingElements from '@/components/ui/floating-elements';
 
@@ -81,15 +79,6 @@ const Projects = () => {
     }
   ];
 
-  const categories = ["All", "Web Application", "Educational Tool", "AI Tool", "Interactive Tool", "Game"];
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects = activeCategory === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
-
-  const featuredProjects = projects.filter(project => project.featured);
-
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       {/* Enhanced Background */}
@@ -101,7 +90,7 @@ const Projects = () => {
           <div className="flex justify-center items-center gap-2 mb-4">
             <Sparkles className="text-teal-400 animate-pulse" size={24} />
             <h2 className="text-3xl sm:text-4xl font-bold gradient-text">
-              Featured Projects
+              My Projects
             </h2>
             <Sparkles className="text-blue-400 animate-pulse" size={24} style={{ animationDelay: '1s' }} />
           </div>
@@ -110,36 +99,9 @@ const Projects = () => {
           </p>
         </ScrollReveal>
 
-        {/* Featured Projects Section */}
-        <ScrollReveal direction="up" delay={200} className="mb-16">
-          <h3 className="text-2xl font-semibold text-slate-200 mb-8 text-center">
-            ⭐ Featured Projects
-          </h3>
+        <ScrollReveal direction="up" delay={200}>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard
-                key={`featured-${project.title}`}
-                {...project}
-                index={index}
-              />
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* All Projects Section with Filter */}
-        <ScrollReveal direction="up" delay={400}>
-          <h3 className="text-2xl font-semibold text-slate-200 mb-8 text-center">
-            🚀 All Projects
-          </h3>
-          
-          <ProjectFilter
-            categories={categories}
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <ProjectCard
                 key={project.title}
                 {...project}
@@ -147,14 +109,6 @@ const Projects = () => {
               />
             ))}
           </div>
-
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-slate-400 text-lg">
-                No projects found in this category.
-              </p>
-            </div>
-          )}
         </ScrollReveal>
       </div>
     </section>
