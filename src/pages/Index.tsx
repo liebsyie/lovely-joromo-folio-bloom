@@ -9,6 +9,8 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import LoadingAnimation from '@/components/ui/loading-animation';
 import InteractiveParticles from '@/components/ui/interactive-particles';
+import InteractiveStats from '@/components/ui/interactive-stats';
+import Testimonials from '@/components/ui/testimonials';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,8 +31,10 @@ const Index = () => {
             <main id="main-content" className="focus:outline-none" tabIndex={-1}>
               <Hero />
               <About />
+              <InteractiveStats />
               <Projects />
               <Skills />
+              <Testimonials />
               <Contact />
             </main>
             <Footer />
