@@ -1,5 +1,5 @@
 
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from '@/components/ui/scroll-reveal';
@@ -7,8 +7,8 @@ import ProjectCard from '@/components/ui/project-card';
 import EnhancedBackground from '@/components/ui/enhanced-background';
 import FloatingElements from '@/components/ui/floating-elements';
 
-const Projects = () => {
-  const allProjects = [
+const AllProjects = () => {
+  const projects = [
     {
       title: "Lovely Joromo Music",
       description: "A personal music streaming platform where I showcase my original compositions and musical creations. Experience my journey as a musician through this interactive music hub.",
@@ -60,54 +60,55 @@ const Projects = () => {
     }
   ];
 
-  // Show only first 5 projects on the main page
-  const featuredProjects = allProjects.slice(0, 5);
-
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      {/* Enhanced Background */}
+    <div className="min-h-screen bg-slate-900 relative">
       <EnhancedBackground variant="section" />
       <FloatingElements />
+      
+      <div className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Back to Portfolio Button */}
+          <ScrollReveal direction="fade" className="mb-8">
+            <Button
+              asChild
+              variant="outline"
+              className="border-slate-600 hover:border-teal-500 text-slate-300 hover:text-teal-400 transition-all duration-300"
+            >
+              <Link to="/" className="flex items-center gap-2">
+                <ArrowLeft size={20} />
+                Back to Portfolio
+              </Link>
+            </Button>
+          </ScrollReveal>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <ScrollReveal direction="fade" className="text-center mb-16">
-          <div className="flex justify-center items-center gap-2 mb-4">
-            <Sparkles className="text-teal-400 animate-pulse" size={24} />
-            <h2 className="text-3xl sm:text-4xl font-bold gradient-text">
-              Featured Projects
-            </h2>
-            <Sparkles className="text-blue-400 animate-pulse" size={24} style={{ animationDelay: '1s' }} />
+          {/* Header */}
+          <ScrollReveal direction="fade" className="text-center mb-16">
+            <div className="flex justify-center items-center gap-2 mb-4">
+              <Sparkles className="text-teal-400 animate-pulse" size={24} />
+              <h1 className="text-4xl sm:text-5xl font-bold gradient-text">
+                All Projects
+              </h1>
+              <Sparkles className="text-blue-400 animate-pulse" size={24} style={{ animationDelay: '1s' }} />
+            </div>
+            <p className="text-slate-400 text-lg">
+              A complete showcase of my work and learning journey
+            </p>
+          </ScrollReveal>
+
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                {...project}
+                index={index}
+              />
+            ))}
           </div>
-          <p className="text-slate-400 text-lg">
-            A showcase of my latest work and learning journey
-          </p>
-        </ScrollReveal>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              {...project}
-              index={index}
-            />
-          ))}
         </div>
-
-        {/* View All Projects Button */}
-        <ScrollReveal direction="fade" className="text-center">
-          <Button
-            asChild
-            className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-slate-900 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-teal-500/25"
-          >
-            <Link to="/projects" className="flex items-center gap-2">
-              View All Projects
-              <ArrowRight size={20} />
-            </Link>
-          </Button>
-        </ScrollReveal>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Projects;
+export default AllProjects;
