@@ -57,6 +57,27 @@ const Projects = () => {
       url: "https://labli-binarybloom.vercel.app/",
       tech: ["React", "TypeScript", "Educational Tools"],
       gradient: "from-indigo-500 to-purple-500"
+    },
+    {
+      title: "BrightChat AI",
+      description: "An AI-powered chat application that provides intelligent conversations and assistance with a bright, user-friendly interface.",
+      url: "https://labli-brightchat-ai.vercel.app/",
+      tech: ["React", "AI Integration", "Chat Interface"],
+      gradient: "from-yellow-500 to-orange-500"
+    },
+    {
+      title: "Evergreen Realm",
+      description: "A nature-themed web application that explores environmental topics and promotes eco-friendly practices through interactive content.",
+      url: "https://labli-evergreenrealm.vercel.app/",
+      tech: ["React", "Environmental Data", "Interactive UI"],
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "My Petal Days",
+      description: "A personal journaling and lifestyle app that helps users track their daily activities, moods, and personal growth journey.",
+      url: "https://labli-mypetaldays.vercel.app/",
+      tech: ["React", "Personal Tracking", "Lifestyle"],
+      gradient: "from-pink-400 to-rose-400"
     }
   ];
 
