@@ -10,13 +10,6 @@ import FloatingElements from '@/components/ui/floating-elements';
 const Projects = () => {
   const allProjects = [
     {
-      title: "Lovely Joromo Music",
-      description: "A personal music streaming platform where I showcase my original compositions and musical creations. Experience my journey as a musician through this interactive music hub.",
-      url: "https://lovelyjoromomusic.vercel.app/",
-      tech: ["React", "Music Streaming", "Audio Player"],
-      gradient: "from-pink-500 to-rose-500"
-    },
-    {
       title: "CTU GWA Calculator",
       description: "A comprehensive GWA (General Weighted Average) calculator specifically designed for CTU students to track their academic performance.",
       url: "https://labli-ctu-gwa-calculator.vercel.app/",
@@ -29,6 +22,27 @@ const Projects = () => {
       url: "https://labli-intelliwriteassistant.vercel.app/",
       tech: ["React", "AI Integration", "TypeScript"],
       gradient: "from-violet-500 to-purple-500"
+    },
+    {
+      title: "Evergreen Realm",
+      description: "A timeless space where connections bloom, stories live on, and your presence matters — always fresh, always real. A cozy and enchanting social world where every post feels like a memory tree and every friend is part of your growing realm. Stay rooted. Grow freely. Connect deeply.",
+      url: "https://labli-evergreenrealm.vercel.app/",
+      tech: ["React", "Social Platform", "Interactive UI"],
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "BrightChat AI",
+      description: "An AI-powered chat application that provides intelligent conversations and assistance with multiple persona options including funny, helpful, and creative modes. Features a bright, user-friendly interface for engaging interactions.",
+      url: "https://labli-brightchat-ai.vercel.app/",
+      tech: ["React", "AI Integration", "Chat Interface"],
+      gradient: "from-yellow-500 to-orange-500"
+    },
+    {
+      title: "Lovely Joromo Music",
+      description: "A personal music streaming platform where I showcase my original compositions and musical creations. Experience my journey as a musician through this interactive music hub.",
+      url: "https://lovelyjoromomusic.vercel.app/",
+      tech: ["React", "Music Streaming", "Audio Player"],
+      gradient: "from-pink-500 to-rose-500"
     },
     {
       title: "MBTI Personality Test",
@@ -59,24 +73,10 @@ const Projects = () => {
       gradient: "from-indigo-500 to-purple-500"
     },
     {
-      title: "BrightChat AI",
-      description: "An AI-powered chat application that provides intelligent conversations and assistance with a bright, user-friendly interface.",
-      url: "https://labli-brightchat-ai.vercel.app/",
-      tech: ["React", "AI Integration", "Chat Interface"],
-      gradient: "from-yellow-500 to-orange-500"
-    },
-    {
-      title: "Evergreen Realm",
-      description: "A nature-themed web application that explores environmental topics and promotes eco-friendly practices through interactive content.",
-      url: "https://labli-evergreenrealm.vercel.app/",
-      tech: ["React", "Environmental Data", "Interactive UI"],
-      gradient: "from-green-500 to-emerald-500"
-    },
-    {
       title: "My Petal Days",
-      description: "A personal journaling and lifestyle app that helps users track their daily activities, moods, and personal growth journey.",
+      description: "A personal period tracking and wellness app designed to help users monitor their menstrual cycle, track symptoms, and maintain reproductive health with beautiful, intuitive design.",
       url: "https://labli-mypetaldays.vercel.app/",
-      tech: ["React", "Personal Tracking", "Lifestyle"],
+      tech: ["React", "Health Tracking", "Wellness"],
       gradient: "from-pink-400 to-rose-400"
     }
   ];
